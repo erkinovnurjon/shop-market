@@ -4,6 +4,9 @@ import TextJustify from "@/assets/icons/textJustify.svg";
 import Button from "../ui/button/Button.vue";
 import Select from "../my/select.vue";
 import Search from "../my/search.vue";
+import Language from "@/layouts/language.vue";
+import { ShoppingCart } from "lucide-vue-next";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>
@@ -18,11 +21,28 @@ import Search from "../my/search.vue";
             Your Title
           </h1>
         </div>
-        <div class="hero-items flex items-center">
-          <img :src="TextJustify" alt="" />
-          <Select />
-          <Button variant="ghost">button</Button>
-          <Search />
+        <div class="flex items-center w-full justify-between">
+          <div class="flex items-center justify-between w-1/6">
+            <img :src="TextJustify" alt="" />
+            <Select />
+          </div>
+          <div class="flex items-center justify-between w-1/2">
+            <Search class="w-full" />
+          </div>
+          <div class="flex items-center justify-between w-1/4">
+            <Language />
+            <Button class="flex justify-between items-center">
+              <Icon
+                icon="radix-icons:person"
+                class="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+              />
+              <span>{{ $t("login") }}</span>
+            </Button>
+            <Button class="flex justify-between gap-2 items-center">
+              <ShoppingCart />
+              <span>{{ $t("cart") }}</span>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
